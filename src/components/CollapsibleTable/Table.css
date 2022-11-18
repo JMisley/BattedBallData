@@ -9,13 +9,13 @@ video {
     border-radius: 20px;
     float: right;
     display: inline;
-    box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.21);
 }
 
 .adv-table {
     display: inline-block;
     float: left;
-    box-shadow: 0 50px 50px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .adv-video {
