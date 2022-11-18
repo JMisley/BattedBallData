@@ -23,6 +23,12 @@ Open a terminal in the root directory of the project and execute:
 ```bash
 npm install
 ```
+*If you encounter an error, use the ```--force``` argument at the end.
+
+```bash
+npm install @emotion/react @emotion/styled
+```
+*Again, if you encounter an error, use the ```--force``` argument at the end.
 
 ## Run 
 
