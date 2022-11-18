@@ -198,8 +198,8 @@ export default function BarGraph() {
                 <YAxis/>
                 <Tooltip/>
                 <Legend/>
-                <Bar dataKey={ `avg ${ causeOne }` } name={ causeToTitle(causeOne) } fill="#8884d8"/>
-                <Bar dataKey={ `avg ${ causeTwo }` } name={ causeToTitle(causeTwo) } fill="#82ca9d"/>
+                <Bar dataKey={ `avg ${ causeOne }` } name= { `Average ${causeToTitle(causeOne)}` } fill="#8884d8"/>
+                <Bar dataKey={ `avg ${ causeTwo }` } name={ `Average ${causeToTitle(causeTwo)}` } fill="#82ca9d"/>
             </BarChart>
             <br/>
             <br/>

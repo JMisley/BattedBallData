@@ -44,7 +44,7 @@ export default function DisparityTable({rows}) {
                             key={ row.cause }
                             sx={ {'&:last-child td, &:last-child th': {border: 0}} }
                         >
-                            <TableCell align="left">{ row.cause }</TableCell>
+                            <TableCell align="left">{ `Average ${row.cause}` }</TableCell>
                             <TableCell align="left">{ row.homeTriple }%</TableCell>
                             <TableCell align="left">{ row.tripleDouble }%</TableCell>
                             <TableCell align="left">{ row.doubleSingle }%</TableCell>
