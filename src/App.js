@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import CollapsibleTable from './components/CollapsibleTable/CollapsibleTable'
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import { grey } from '@mui/material/colors'
+import BarGraph from './components/BarGraph/BarGraph'
+
+const getDesignTokens = (mode) => ({
+    palette: {
+        mode,
+        ...(mode === 'dark' && {
+            background: {
+                default: grey[900],
+                paper: grey[900],
+            },
+        }),
+    },
+})
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const darkModeTheme = createTheme(getDesignTokens('dark'))
+
+    return (
+        <div className="App">
+            <ThemeProvider theme={ darkModeTheme }>
+                <CssBaseline/>
+                <div className={ 'container' }>
+                    <div className={ 'title' }>
+                        <h1>Batted Ball Data</h1>
+                    </div>
+                    <CollapsibleTable/>
+                </div>
+                <div className={'container1'}>
+                    <BarGraph/>
+                </div>
+            </ThemeProvider>
+        </div>
+    )
 }
 
-export default App;
+export default App

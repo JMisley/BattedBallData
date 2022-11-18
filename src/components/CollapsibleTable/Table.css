@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+video {
+    height: 200px;
+    width: 350px;
+    border-radius: 20px;
+    float: right;
+    display: inline;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+.adv-table {
+    display: inline-block;
+    float: left;
+    box-shadow: 0 50px 50px 0 rgba(255, 255, 255, 0.1);
+}
+
+.adv-video {
+    display: inline-block;
+    margin-left: 100px;
+}
+
+img {
+    height: 32px;
+}
+
+h2 {
+    font-size: 16px;
+    color: #ff9c9c;
+}
+
+h2:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #cac9c9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(213, 0, 50, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(213, 0, 50, 0.7);
+}
