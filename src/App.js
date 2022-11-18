@@ -23,14 +23,14 @@ function App() {
         <div className="App">
             <ThemeProvider theme={ darkModeTheme }>
                 <CssBaseline/>
+                <div className={'container1'}>
+                    <BarGraph/>
+                </div>
                 <div className={ 'container' }>
                     <div className={ 'title' }>
                         <h1>Batted Ball Data</h1>
                     </div>
                     <CollapsibleTable/>
-                </div>
-                <div className={'container1'}>
-                    <BarGraph/>
                 </div>
             </ThemeProvider>
         </div>
