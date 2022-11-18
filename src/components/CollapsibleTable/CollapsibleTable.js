@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Box from '@mui/material/Box'
 import Collapse from '@mui/material/Collapse'
@@ -15,7 +16,6 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import FirstPageIcon from '@mui/icons-material/FirstPage'
 import LastPageIcon from '@mui/icons-material/LastPage'
-import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './Table.css'
 import TablePagination from '@mui/material/TablePagination'
@@ -25,11 +25,11 @@ import { FormControl, MenuItem, Select, styled, tableCellClasses, useTheme } fro
 import baseballImg from './img/baseball.png'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
 import SearchBar from 'material-ui-search-bar'
-import InputLabel from '@mui/material/InputLabel'
 
-const StyledTableCell = styled(TableCell)(({theme}) => ({
+// eslint-disable-next-line no-empty-pattern
+const StyledTableCell = styled(TableCell)(({}) => ({
     [`&.${ tableCellClasses.head }`]: {
-        background: 'linear-gradient(0deg, rgba(0,35,77,1) 9%, rgba(0,45,114,1) 10%)',
+        background: 'linear-gradient(0deg, rgba(78,77,122,1) 15%, rgba(99,96,154,1) 15%)',
         zIndex: 100,
     },
     [`&.${ tableCellClasses.body }`]: {
@@ -38,9 +38,10 @@ const StyledTableCell = styled(TableCell)(({theme}) => ({
     },
 }))
 
-const StyledTableRow = styled(TableRow)(({theme}) => ({
+// eslint-disable-next-line no-empty-pattern
+const StyledTableRow = styled(TableRow)(({}) => ({
     '&:nth-of-type(even)': {
-        background: 'linear-gradient(270deg, rgba(0,45,114,0.50) 35%, rgba(213,0,50,0.50) 100%)',
+        background: 'linear-gradient(270deg, rgba(162,160,210,0.7) 0%, rgba(161,204,177,0.7) 80%)',
         color: 'white'
     },
     '&:nth-of-type(4n+1)': {
@@ -395,7 +396,7 @@ export default function CollapsibleTable() {
     return (
         <>
             <div style={{display: 'flex', width: '100%'}}>
-                <FormControl size={ 'small' } style={ {flex:'1', backgroundColor: 'rgba(213,0,50,0.71)'} }>
+                <FormControl size={ 'small' } style={ {flex:'1', backgroundColor: '#5e996c'} }>
                     <Select value={ searchBy } onChange={ changeSearchBy }>
                         <MenuItem value={ 'BATTER' }>Batter</MenuItem>
                         <MenuItem value={ 'BATTER_ID' }>Batter ID</MenuItem>
@@ -467,7 +468,7 @@ export default function CollapsibleTable() {
                     onPageChange={ handleChangePage }
                     onRowsPerPageChange={ handleChangeRowsPerPage }
                     ActionsComponent={ TablePaginationActions }
-                    style={ {backgroundColor: '#D50032'} }
+                    style={ {backgroundColor: 'rgba(130,202,157,0.7)'} }
                 />
             </Paper>
         </>

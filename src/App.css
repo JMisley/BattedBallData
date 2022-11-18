@@ -21,6 +21,6 @@ div .title {
     border-radius: 8px;
     border: 1px rgba(255, 255, 255, 0.22);
     border-style: none none solid none;
-    background-color: #002d72;
+    background-color: rgba(99, 96, 154, 1);
     padding: 10px;
 }

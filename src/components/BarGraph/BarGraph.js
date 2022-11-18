@@ -36,7 +36,7 @@ export default function BarGraph() {
     ])
 
     function causeToTitle(cause) {
-        cause = cause.replace('_', ' ')
+        cause = cause.replaceAll('_', ' ')
         return cause.replace(
             /\w\S*/g,
             function (txt) {
@@ -67,13 +67,15 @@ export default function BarGraph() {
 
     useEffect(() => {
         if (data !== null) {
-            setRows(createRows)
+            let temp = createRows()
+            if (!arraysEqual(temp, rows)) {
+                setRows(createRows)
+            }
             if (rows !== []) {
                 setDisparityRows(createDisparityRows)
-                console.log(disparityRows)
             }
         }
-    }, [data])
+    }, [data, rows])
 
     function createRows() {
         if (data !== null) {
@@ -98,7 +100,6 @@ export default function BarGraph() {
             objArray = objArray.sort((x, y) => {
                 return organizedArray.indexOf(x.PLAY_OUTCOME) - organizedArray.indexOf(y.PLAY_OUTCOME)
             })
-            console.log(objArray)
             return objArray
         }
     }
@@ -106,13 +107,17 @@ export default function BarGraph() {
     function createDisparityRows() {
         let disparityRows = []
         let objArray = []
-        let cols = ['homeTriple', 'tripleDouble', 'doubleSingle', 'singleOut']
-        for (let x = 0; x < rows.length; x++) {
-            let disparity = getDisparityPercent(rows[x][Object.keys(rows[x])[0]], rows[x + 1][Object.keys(rows[x])[0]])
-            disparityRows.push(disparity)
+        let cols = ['cause', 'homeTriple', 'tripleDouble', 'doubleSingle', 'singleOut']
+        let causes = [causeOne, causeTwo]
+        for (let y = 0; y < causes.length; y++) {
+            disparityRows.push(causeToTitle(causes[y]))
+            for (let x = 0; x < rows.length - 1; x++) {
+                let disparity = getDisparityPercent(rows[x][Object.keys(rows[x])[y]], rows[x + 1][Object.keys(rows[x])[y]])
+                disparityRows.push(disparity)
+            }
+            objArray.push(toObject(cols, disparityRows))
+            disparityRows = []
         }
-        console.log(objArray)
-        objArray.push(toObject(cols, disparityRows))
         return objArray
     }
 
@@ -199,13 +204,22 @@ export default function BarGraph() {
             <br/>
             <br/>
             <h1>Percentage Difference Table</h1>
-            <DisparityTable rows={disparityRows}/>
+            <DisparityTable rows={ disparityRows }/>
         </>
     )
 }
 
 function getDisparityPercent(value1, value2) {
-    let numerator = Math.abs(value1 - value2)
+    let numerator = Math.abs(Math.abs(value1) - Math.abs(value2))
     let denominator = (value1 + value2) / 2
-    return Math.round(((numerator / denominator) * 100) * 100) / 100
+    return Math.abs(Math.round(((numerator / denominator) * 100) * 100) / 100)
 }
+
+const objectsEqual = (o1, o2) =>
+    typeof o1 === 'object' && Object.keys(o1).length > 0
+        ? Object.keys(o1).length === Object.keys(o2).length
+        && Object.keys(o1).every(p => objectsEqual(o1[p], o2[p]))
+        : o1 === o2
+
+const arraysEqual = (a1, a2) =>
+    a1.length === a2.length && a1.every((o, idx) => objectsEqual(o, a2[idx]))
