@@ -2,7 +2,7 @@
 
 ## Description
 
-This project pulls data from a google sheets file, and displays it into a table that allows a user to filter columns by ascending/descending order or filter columns by a key word/number. It also features a collapsable interface, which allows for additional data/content to be displayed. Below the table is a bar chart, which allows the user to pick two of the statistics (numeric) from the table to see how they correlate with the outcome of the play. Under this is another table which displays the percentage differences from the bar chart. 
+This project pulls data from a google sheets file, and displays a bar chart, which allows the user to pick two numeric statistics from the google sheets to see how they correlate with the outcome of the play. Under this is a table which displays the percentage differences from the bar chart. Below that is another table that displays all the data from the google sheets and allows a user to filter columns by ascending/descending order or filter columns by a key word/number. It also features a collapsable interface, which allows for additional data/content to be displayed.
 
 ## How to Run
 
